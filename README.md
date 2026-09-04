@@ -123,7 +123,6 @@ smart-farmer-advisory-system/
 ├── app.py
 ├── requirements.txt
 ├── README.md
-└── screenshots/
 
 
 ## Installation
