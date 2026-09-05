@@ -67,7 +67,7 @@ Provides a simple crop calendar showing information related to:
 
 This helps farmers understand important activities during the crop cycle.
 
-### 6. Pest & Disease Information
+### 6. Pest & Disease Guide
 Provides information about common pests and diseases for different crops.
 
 It includes:
@@ -78,7 +78,7 @@ It includes:
 
 This feature provides general information and does not diagnose a crop from an uploaded image.
 
-### 7. Yield Prediction
+### 7. Yield Estimator
 Provides an approximate yield estimate using basic farm conditions such as:
 
 - Crop
