@@ -69,12 +69,12 @@ text = {
         "harvest": "Harvest Time",
         "tip": "Farming Tip",
         "explore": "Explore →",
-        "pest": "Pest & Disease Detection",
+        "pest": "Pest & Disease Guide",
         "pest_desc": "Identify common crop pests and diseases and get basic prevention guidance.",
         "pest_intro": "Select your crop to see common pests, diseases, symptoms and basic prevention.",
         "select_crop_pest": "Select Crop",
         "pest_result": "Pest & Disease Information",
-        "yield_prediction": "Yield Prediction",
+        "yield_estimator": "Yield Estimator",
         "yield_desc": "Estimate crop yield using field and weather conditions.",
         "select_crop_yield": "Select Crop",
         "area": "Farm Area (hectares)",
@@ -82,7 +82,7 @@ text = {
         "rainfall_yield": "Rainfall (mm)",
         "soil_yield": "Select Soil Type",
         "fertilizer_yield": "Fertilizer Usage",
-        "predict_yield": "Predict Yield",
+        "predict_yield": "Estimate Yield",
         "yield_note": "This is an estimated value. Actual yield may vary depending on farming conditions.",
         
     },
@@ -109,12 +109,12 @@ text = {
         "harvest": "कटाई का समय",
         "tip": "खेती की सलाह",
         "explore": "जानकारी देखें →",
-        "pest": "कीट और रोग पहचान",
+        "pest": "कीट और रोग मार्गदर्शिका",
         "pest_desc": "सामान्य फसल कीट और रोगों की जानकारी तथा बचाव की सलाह प्राप्त करें।",
         "pest_intro": "अपनी फसल चुनें और सामान्य कीट, रोग, लक्षण और बचाव की जानकारी देखें।",
         "select_crop_pest": "फसल चुनें",
         "pest_result": "कीट और रोग की जानकारी",
-        "yield_prediction": "उपज का अनुमान",
+        "yield_estimator": "उपज अनुमान",
         "yield_desc": "खेत और मौसम की परिस्थितियों के आधार पर फसल की अनुमानित उपज जानें।",
         "select_crop_yield": "फसल चुनें",
         "area": "खेत का क्षेत्रफल (हेक्टेयर)",
@@ -122,7 +122,7 @@ text = {
         "rainfall_yield": "वर्षा (mm)",
         "soil_yield": "मिट्टी का प्रकार चुनें",
         "fertilizer_yield": "उर्वरक का उपयोग",
-        "predict_yield": "उपज का अनुमान लगाएं",
+        "predict_yield": "उपज अनुमान लगाएं",
         "yield_note": "यह एक अनुमानित मान है। वास्तविक उपज खेती की परिस्थितियों के अनुसार अलग हो सकती है।",
         
     }
@@ -361,7 +361,7 @@ if option is None:
         """, unsafe_allow_html=True)
 
         if st.button(text[language]["explore"], key="pest_card", use_container_width=True):
-            st.session_state["selected_option"] = "Pest & Disease Detection"
+            st.session_state["selected_option"] = "Pest & Disease Guide"
             st.rerun()
 
     col7, col8 = st.columns(2)
@@ -370,7 +370,7 @@ if option is None:
         st.markdown("""
         <div class="service-card">
             <div class="service-image">📊</div>
-            <div class="service-title">""" + text[language]["yield_prediction"] + """</div>
+            <div class="service-title">""" + text[language]["yield_estimator"] + """</div>
             <div class="service-description">
                 """ + text[language]["yield_desc"] + """
             </div>
@@ -378,7 +378,7 @@ if option is None:
         """, unsafe_allow_html=True)
 
         if st.button(text[language]["explore"], key="yield_card", use_container_width=True):
-            st.session_state["selected_option"] = "Yield Prediction"
+            st.session_state["selected_option"] = "Yield Estimator"
             st.rerun()
 
 else:
@@ -398,8 +398,8 @@ else:
         "Fertilizer": "🧪",
         "Weather": "🌦️",
         "Crop Calendar": "📅",
-        "Pest & Disease Detection": "🐛",
-        "Yield Prediction": "📊"
+        "Pest & Disease Guide": "🐛",
+        "Yield Estimator": "📊"
     }
 
     feature_descriptions = {
@@ -408,8 +408,8 @@ else:
         "Fertilizer": text[language]["fertilizer_desc"],
         "Weather": text[language]["weather_desc"],
         "Crop Calendar": text[language]["calendar_desc"],
-        "Pest & Disease Detection": text[language]["pest_desc"],
-        "Yield Prediction": text[language]["yield_desc"]
+        "Pest & Disease Guide": text[language]["pest_desc"],
+        "Yield Estimator": text[language]["yield_desc"]
     }
 
     feature_titles = {
@@ -418,8 +418,8 @@ else:
         "Fertilizer": text[language]["fertilizer"],
         "Weather": text[language]["weather"],
         "Crop Calendar": text[language]["calendar"],
-        "Pest & Disease Detection": text[language]["pest"],
-        "Yield Prediction": text[language]["yield_prediction"]
+        "Pest & Disease Guide": text[language]["pest"],
+        "Yield Estimator": text[language]["yield_estimator"]
     }
 
     st.markdown("""
@@ -2691,15 +2691,15 @@ def show_pest_detection():
     st.warning(p["warning"])
     st.caption(p["serious"])
                 
-if option == "Pest & Disease Detection":
+if option == "Pest & Disease Guide":
     show_pest_detection()      
     
     
     
 
-def show_yield_prediction():
+def show_yield_estimator():
     
-    st.subheader(text[language]["yield_prediction"])
+    st.subheader(text[language]["yield_estimator"])
     st.write(text[language]["yield_desc"])
 
     
@@ -2936,7 +2936,7 @@ def show_yield_prediction():
         
         if language == "English":
 
-            st.subheader("Prediction Result")
+            st.subheader("Estimation Result")
 
             if yield_status == "Low":
                 st.warning("Low Yield Expected")
@@ -2961,7 +2961,7 @@ def show_yield_prediction():
                     f"{total_yield:.2f} tonnes"
                 )
 
-            st.write("### Why this prediction?")
+            st.write("### Why this estimate?")
 
             st.write(
                 "This estimate is calculated from the selected crop, "
@@ -3013,5 +3013,5 @@ def show_yield_prediction():
             text[language]["yield_note"]
         )
        
-if option == "Yield Prediction":
-    show_yield_prediction()                    
+if option == "Yield Estimator":
+    show_yield_estimator()                    
